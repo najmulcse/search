@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,18 +15,29 @@ class TaskController extends Controller
 //        $this->middleware('auth');
 //    }
 
-    public function index(Request $request)
+    public function index()
     {
-        $tasks = $request->user()->tasks()->get();
+        $tasks = Task::orderBy('created_at','dsc')->get();
 
         return view('tasks.index',compact('tasks'));
     }
 
 
+    public function edit(Task $task){
+
+        return view('tasks.edit',compact('task'));
+    }
+    public function update(Request $request, Task $task){
+        $task->name=$request->name;
+        $task->save();
+        return redirect('/tasks');
+
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
+            'name' => 'required|min:10',
         ]);
 
         $request->user()->tasks()->create([
@@ -33,5 +45,12 @@ class TaskController extends Controller
         ]);
 
         return redirect('/tasks');
+    }
+
+
+    public function destroy(Task $task){
+
+        $task->delete();
+        return back();
     }
 }

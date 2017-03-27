@@ -24,10 +24,21 @@
             <!-- Add Task Button -->
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary pull-right">
                         <i class="fa fa-plus"></i> Add Task
                     </button>
                 </div>
+                    <div class="col-sm-offset-3 col-sm-6">
+                    @if(count($errors)>0)
+                        <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                        </div>
+                    @endif
+                </div>
+
+
             </div>
 
         </form>
@@ -47,7 +58,7 @@
                                    <!-- Table Headings -->
                                    <thead>
                                    <th>Task</th>
-                                   <th>&nbsp;</th>
+
                                    </thead>
 
                                    <!-- Table Body -->
@@ -59,8 +70,17 @@
                                                <div>{{ $task->name }}</div>
                                            </td>
 
-                                           <td>
                                                <!-- TODO: Delete Button -->
+                                           <td>
+                                               <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                                   {{ csrf_field() }}
+                                                   {{ method_field('DELETE') }}
+
+                                                   <button type="submit" class="btn btn-danger">
+                                                       <i class="fa fa-trash"></i> Delete
+                                                   </button>
+                                               </form>
+
                                            </td>
                                        </tr>
                                    @endforeach
