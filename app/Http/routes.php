@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/tasks','TaskController@index');
 Route::post('/task','taskController@store');
+Route::get('/tasks/{task}','taskController@destroy');
