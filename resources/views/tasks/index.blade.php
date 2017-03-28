@@ -68,7 +68,7 @@
                 <label for="task-name" class="col-sm-3 control-label">Task</label>
 
                 <div class="col-sm-6">
-                    <textarea name="name" class="form-control" id="task-name" ></textarea>
+                    <textarea name="name" class="form-control" id="task-name" placeholder="Type a task" ></textarea>
                 </div>
             </div>
 

@@ -24,10 +24,13 @@ class BuddyController extends Controller
 
         $id=$user->id;
         $sender=Auth::user();
+
         $sender->load('chats.user');
         $chats=$sender->chats()->where('receiver_id',$id)->get();
       //// $chats =Chat::where('receiver_id',$id)->get();
-        return view('buddy.chat',compact('user','chats'));
+        $sender_id=Auth::user()->id;
+        $receiver=$user->chats()->where('receiver_id',$sender_id)->get();
+        return view('buddy.chat',compact('user','chats','receiver'));
 
     }
 

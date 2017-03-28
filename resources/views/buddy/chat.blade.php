@@ -10,34 +10,54 @@
 
         </div>
         <div class="col-sm-6">
-                    <h2>{{$user->name}}</h2>
+
 
                     <div style="height: 590px">
+                        <h2>{{$user->name}}</h2>
                        <div style="height: 300px ; overflow: auto; " >
 
                          <div class="panel-body">
+
                             <table class="table table-striped task-table">
 
                                 <!-- Table Headings -->
                                 <thead>
-                                <th>Task</th>
+
 
                                 </thead>
 
                                 <!-- Table Body -->
                                 <tbody>
-                                @foreach ($chats as $chat)
+                                <!-- receiver Body -->
+                                @foreach ($receiver as $receive)
                                     <tr>
 
                                         <!-- Task Name -->
                                         <td class="table-text">
-                                            <div>{{$chat->message}}</div>
+                                            <div class="pull-left">{{$receive->message}}</div>
                                         </td>
 
                                         <!-- TODO: Delete Button -->
                                         <td>
 
                                         </td>
+                                    </tr>
+                                @endforeach
+
+
+                                @foreach ($chats as $chat)
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                        <!-- Task Name -->
+                                        <td class="table-text">
+                                            <div class="pull-right">{{$chat->message}}</div>
+                                        </td>
+
+                                        <!-- TODO: Delete Button -->
+
+
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -50,7 +70,7 @@
 
                                 {{csrf_field()}}
 
-                                    <textarea class="form-control" name="message"  rows="2">
+                                    <textarea placeholder="Type a message" class="form-control" name="message"  rows="3" >
 
                                     </textarea>
                                     <button class="btn btn-primary pull-right">Send</button>
