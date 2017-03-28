@@ -29,4 +29,7 @@ class User extends Authenticatable
       return $this->hasMany('App\Task');
 
     }
+    public function chats(){
+        return $this->hasMany('App\Chat');
+    }
 }

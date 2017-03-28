@@ -24,3 +24,18 @@ Route::post('/task','TaskController@store');
 Route::delete('/task/{task}','TaskController@destroy');
 Route::get('/tasks/edit/{task}','TaskController@edit');
 Route::patch('/tasks/{task}','TaskController@update');
+
+
+//Buddy list controller section
+
+Route::get('/buddyList','BuddyController@index');
+
+Route::get('/users/{user}',
+    ['uses'=>'BuddyController@chat',
+     'as' =>'doChat']
+);
+
+Route::post('/users/{user}',
+    ['uses'=>'BuddyController@store',
+        'as' =>'sendMessage']
+);

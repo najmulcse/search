@@ -41,7 +41,14 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
-
+                <!-- BuddyList button -->
+                <ul class="nav navbar-nav">
+                    <li> <a href="{{url('/buddyList')}}">BuddyList</a></li>
+                </ul>
+                <!-- Task button -->
+                <ul class="nav navbar-nav">
+                    <li> <a href="{{url('/tasks')}}">Task</a></li>
+                </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
@@ -49,6 +56,7 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
