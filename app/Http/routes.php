@@ -11,6 +11,10 @@
 |
 */
 
+Route::group(['middleware'=>['web']],function (){
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,3 +43,6 @@ Route::post('/users/{user}',
     ['uses'=>'BuddyController@store',
         'as' =>'sendMessage']
 );
+
+
+});

@@ -27,39 +27,39 @@
                                 </thead>
 
                                 <!-- Table Body -->
+                                <!-- Testing ...... -->
                                 <tbody>
-                                <!-- receiver Body -->
-                                @foreach ($receiver as $receive)
-                                    <tr>
 
-                                        <!-- Task Name -->
-                                        <td class="table-text">
-                                            <div class="pull-left">{{$receive->message}}</div>
-                                        </td>
+                                @foreach($chats as $chat)
+                                <tr>
+                                @if($chat->user_id==$user->id)
+                                <!-- Task Name -->
+                                <td class="table-text">
 
-                                        <!-- TODO: Delete Button -->
-                                        <td>
+                                <div class="pull-left">{{$chat->message}}</div>
+                                </td>
 
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                <!-- TODO: Delete Button -->
+                                <td>
 
+                                    @else
+                                    <td class="table-text">
 
-                                @foreach ($chats as $chat)
-                                    <tr>
-                                        <td>
-
-                                        </td>
-                                        <!-- Task Name -->
-                                        <td class="table-text">
                                             <div class="pull-right">{{$chat->message}}</div>
-                                        </td>
+                                    </td>
 
-                                        <!-- TODO: Delete Button -->
+                                    <!-- TODO: Delete Button -->
+                                    <td>
 
 
-                                    </tr>
+                                </td>
+                                    @endif
+                                </tr>
+
                                 @endforeach
+                                <br>
+
+
                                 </tbody>
                             </table>
                             </div>

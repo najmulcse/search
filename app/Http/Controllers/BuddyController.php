@@ -22,15 +22,61 @@ class BuddyController extends Controller
 
     public function chat(User $user){
 
-        $id=$user->id;
+       $receiver_id=$user->id;
         $sender=Auth::user();
+        $sender_id=$sender->id;
+        $chats=Chat::whereIn('user_id',[$receiver_id,$sender_id])-> whereIn('receiver_id',[$receiver_id,$sender_id])->orderBy('created_at','asc')->get();
 
-        $sender->load('chats.user');
-        $chats=$sender->chats()->where('receiver_id',$id)->get();
-      //// $chats =Chat::where('receiver_id',$id)->get();
-        $sender_id=Auth::user()->id;
-        $receiver=$user->chats()->where('receiver_id',$sender_id)->get();
-        return view('buddy.chat',compact('user','chats','receiver'));
+
+
+
+
+//        $sender->load('chats.user');
+//        $chats=$sender->chats()->where('receiver_id',$id)->get();
+//      //// $chats =Chat::where('receiver_id',$id)->get();
+//        $sender_id=Auth::user()->id;
+//        $receiver=$user->chats()->where('receiver_id',$sender_id)->get();
+//        $small=0;
+//        $big=0;
+//
+//        $y=count($chats);
+//        $x=count($receiver);
+//
+//        if($x>$y)
+//        {
+//            $big=$x;
+//            $small=$y;
+//        }
+//        else if($y>$x)
+//        {
+//            $big=$y;
+//            $small=$x;
+//        }
+
+//        for($i=0,$j=0;$i<$big;)
+//        {
+//            for( ; $j<$small ;){
+//
+//                if($receiver[$i]->created_at >$chats[$j]->created_at)
+//                {
+//
+//                    {{$chats[$j]->message ;}}
+//                      // return $chats[$j]->message;
+//                       $j++;
+//
+//
+//                }
+//                else{
+//
+//                    {{$receiver[$i]->message ;}}
+//                   //return $receiver[$i]->message;
+//                $i++;
+//                }
+//            }
+//        }
+
+
+        return view('buddy.chat',compact('user','chats','sender'));
 
     }
 
