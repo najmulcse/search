@@ -25,7 +25,6 @@ class BuddyController extends Controller
        $receiver_id=$user->id;
         $sender=Auth::user();
         $sender_id=$sender->id;
-        $chats=Chat::whereIn('user_id',[$receiver_id,$sender_id])-> whereIn('receiver_id',[$receiver_id,$sender_id])->orderBy('created_at','asc')->get();
 
 
 

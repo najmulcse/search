@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "content-hash": "8afcd7897ae6bfac462222cef6ccae79",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1743,6 +1743,50 @@
                 "dump"
             ],
             "time": "2016-07-26T08:03:56+00:00"
+        },
+        {
+            "name": "teepluss/console",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teepluss/laravel-console.git",
+                "reference": "0d0ea1619cf9b820a2a07a9a36eb81e8ff3d8643"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teepluss/laravel-console/zipball/0d0ea1619cf9b820a2a07a9a36eb81e8ff3d8643",
+                "reference": "0d0ea1619cf9b820a2a07a9a36eb81e8ff3d8643",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Teepluss\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Teepluss",
+                    "email": "teepluss@gmail.com",
+                    "homepage": "https://github.com/teepluss",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Browser console for Laravel Framework.",
+            "keywords": [
+                "browser",
+                "console",
+                "laravel"
+            ],
+            "time": "2017-01-06T17:26:00+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
