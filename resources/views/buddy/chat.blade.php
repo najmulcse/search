@@ -69,10 +69,13 @@
                             <form method="post" action="{{route('sendMessage',['userid'=>$user->id])}} " class="form-horizontal">
 
                                 {{csrf_field()}}
-
-                                    <textarea placeholder="Type a message" class="form-control" name="message"  rows="3" >
+                                    <div>
+                                    <textarea placeholder="Type a message" class="form-control validation" name="message"  rows="4" >
 
                                     </textarea>
+                                        {{--<div class="validation"></div>--}}
+
+                                    </div>
                                     <button class="btn btn-primary pull-right">Send</button>
 
                             </form>

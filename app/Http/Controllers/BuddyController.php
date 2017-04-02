@@ -27,7 +27,7 @@ class BuddyController extends Controller
         $sender_id=$sender->id;
 
 
-
+       $chats=Chat::whereIn('user_id',[$sender_id,$receiver_id])->whereIn('receiver_id',[$sender_id,$receiver_id])->get();
 
 
 //        $sender->load('chats.user');
